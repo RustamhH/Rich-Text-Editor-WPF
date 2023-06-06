@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,25 @@ namespace Rich_Text_Editor
     /// </summary>
     public partial class MainWindow : Window
     {
+        string allText = "";
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void FileDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            OpenFileDialog openFileDialog = new();
+            openFileDialog.FileName = FileDialogTextBox.Text;
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            if(openFileDialog.ShowDialog()==true)
+            {
+                var str = File.ReadAllText(openFileDialog.FileName);
+                MainTextBox.Text = str;
+                FileDialogTextBox.Text = openFileDialog.FileName;   
+            } 
+            
         }
     }
 }

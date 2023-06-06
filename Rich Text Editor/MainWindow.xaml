@@ -78,7 +78,7 @@
                         </TextBox>
 
                         
-                        <Button Name="FileDialogButton" Width="20" Background="Transparent">
+                        <Button Name="FileDialogButton" Width="20" Background="Transparent" Click="FileDialogButton_Click">
                             <Button.ToolTip>
                                 <StackPanel>
                                     <TextBlock Text="Loader Button" FontWeight="Bold" />
@@ -104,7 +104,7 @@
 
 
 
-                <TextBox Grid.Row="2" BorderBrush="#003bf7" BorderThickness="2">
+                <TextBox Grid.Row="2" BorderBrush="#003bf7" BorderThickness="2" Name="MainTextBox">
                     
                     
                 </TextBox>
