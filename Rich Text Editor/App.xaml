@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:Rich_Text_Editor"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <Image x:Key="Load" Source="assets/load button.png"></Image>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

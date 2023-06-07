@@ -19,3 +19,25 @@ D:\WinForm & WPF\Rich Text Editor\Rich Text Editor\obj\Debug\net6.0-windows\refi
 D:\WinForm & WPF\Rich Text Editor\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.pdb
 D:\WinForm & WPF\Rich Text Editor\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.genruntimeconfig.cache
 D:\WinForm & WPF\Rich Text Editor\Rich Text Editor\obj\Debug\net6.0-windows\ref\Rich Text Editor.dll
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\bin\Debug\net6.0-windows\Rich Text Editor.exe
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\bin\Debug\net6.0-windows\Rich Text Editor.deps.json
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\bin\Debug\net6.0-windows\Rich Text Editor.runtimeconfig.json
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\bin\Debug\net6.0-windows\Rich Text Editor.dll
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\bin\Debug\net6.0-windows\Rich Text Editor.pdb
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.csproj.AssemblyReference.cache
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor_MarkupCompile.cache
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor_MarkupCompile.lref
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.g.resources
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.AssemblyInfoInputs.cache
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.AssemblyInfo.cs
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.csproj.CoreCompileInputs.cache
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.dll
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\refint\Rich Text Editor.dll
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.pdb
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\Rich Text Editor.genruntimeconfig.cache
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\ref\Rich Text Editor.dll
+C:\Users\Hesen_zc39\Desktop\Rich-Text-Editor-WPF\Rich Text Editor\obj\Debug\net6.0-windows\App.baml

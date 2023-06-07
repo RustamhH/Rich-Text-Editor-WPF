@@ -28,7 +28,7 @@
                 <Border Grid.Row="0" VerticalAlignment="Top" CornerRadius="3" >
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Offset="0" Color="#003bf7" />
+                            <GradientStop Offset="0" Color="#89cff0" />
                             <GradientStop Offset="1" Color="#009af4" />
                         </LinearGradientBrush>
                     </Border.Background>
@@ -43,14 +43,16 @@
                         </Grid.RowDefinitions>
                         
                         <!-- Logo -->
-                        <Label Grid.Row="0" Height="130" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" FontFamily="Arial Black" Content="Rich Text Editor"></Label>
+                        <Label Grid.Row="0" Height="130" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" FontFamily="Arial" Foreground="AliceBlue" Content="Rich Text Editor"></Label>
                         <Menu Grid.Row="1" Background="Transparent" Height="20">
-                            <MenuItem Header="_File" FontFamily="Arial Black" Height="20" Width="40"></MenuItem>
-                            <MenuItem Header="Home" FontFamily="Arial Black" Height="20" Width="50"></MenuItem>
-                            <MenuItem Header="Insert" FontFamily="Arial Black" Height="20" Width="50"></MenuItem>
-                            <MenuItem Header="Format" FontFamily="Arial Black" Height="20" Width="60"></MenuItem>
-                            <MenuItem Header="View" FontFamily="Arial Black" Height="20" Width="50"></MenuItem>
-                            <MenuItem Header="Help" FontFamily="Arial Black" Height="20" Width="50"></MenuItem>
+                            <MenuItem Header="_File" FontFamily="Arial" Height="20" Width="40">
+                                <MenuItem Header="Save As..." FontFamily="Arial Black" Height="20" Width="150" Click="SaveAs_Click"></MenuItem>
+                            </MenuItem>
+                            <MenuItem Header="Home"    FontFamily="Arial" Height="20" Width="50"></MenuItem>
+                            <MenuItem Header="Insert"  FontFamily="Arial" Height="20" Width="50"></MenuItem>
+                            <MenuItem Header="Format"  FontFamily="Arial" Height="20" Width="60"></MenuItem>
+                            <MenuItem Header="View"    FontFamily="Arial" Height="20" Width="50"></MenuItem>
+                            <MenuItem Header="Help"    FontFamily="Arial" Height="20" Width="50"></MenuItem>
                         </Menu>
                     </Grid>
 
@@ -61,14 +63,14 @@
                 <Border Grid.Row="1">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Offset="0" Color="#003bf7" />
+                            <GradientStop Offset="0" Color="#89cff0" />
                             <GradientStop Offset="1" Color="#009af4" />
                         </LinearGradientBrush>
                     </Border.Background>
 
                     <WrapPanel>
                         <TextBox 
-                            Name="FileDialogTextBox" Background="Transparent" Width="80">
+                            Name="FileDialogTextBox" Background="Transparent" Width="80" BorderBrush="Black">
                             <TextBox.ToolTip>
                                 <StackPanel>
                                     <TextBlock Text="File Loader" FontWeight="Bold"/>
@@ -78,33 +80,36 @@
                         </TextBox>
 
                         
-                        <Button Name="FileDialogButton" Width="20" Background="Transparent" Click="FileDialogButton_Click">
+                        <Button Name="FileDialogButton" Width="20" Background="Transparent" Click="FileDialogButton_Click" BorderBrush="Black">
                             <Button.ToolTip>
                                 <StackPanel>
                                     <TextBlock Text="Loader Button" FontWeight="Bold" />
                                     <TextBlock Text="Click the button and it will open a file dialog for you to choose a file"/>
                                 </StackPanel>
                             </Button.ToolTip>
-                            ^</Button>
-                        <Button Name="SaveButton"  Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold">Save</Button>
-                        <CheckBox Name ="AutoSaveCheckBox" Margin="8 2 0 0">
+                            <TextBlock>
+                                
+                            </TextBlock>
+                            </Button>
+                        <Button Name="SaveButton"  Width="50" Background="Transparent" Margin="20 0 0 0" Click="SaveButton_Click" BorderBrush="Black">Save</Button>
+                        <CheckBox Name ="AutoSaveCheckBox" Margin="8 2 0 0" Checked="AutoSaveCheckBox_Checked" Unchecked="AutoSaveCheckBox_Unchecked" Background="Transparent" BorderBrush="Black" BorderThickness="2">
                             <CheckBox.ToolTip>
                                 <StackPanel>
-                                    <TextBlock Text="Auto Save" FontWeight="Bold" />
+                                    <TextBlock Text="Auto Save" FontWeight="Bold"/>
                                     <TextBlock Text="Saves the content every time it change"/>
                                 </StackPanel>
                             </CheckBox.ToolTip>
                         </CheckBox>
-                        <Button Name="CutButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold" Click="CutButton_Click">Cut</Button>
-                        <Button Name="CopyButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold" Click="CopyButton_Click">Copy</Button>
-                        <Button Name="PasteButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold" Click="PasteButton_Click">Paste</Button>
-                        <Button Name="SelectAllButton"  Width="60" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold" Click="SelectAllButton_Click">Select All</Button>
+                        <Button Name="CutButton" Width="50" Background="Transparent" Margin="20 0 0 0" Click="CutButton_Click" BorderBrush="Black"  >Cut</Button>
+                        <Button Name="CopyButton" Width="50" Background="Transparent" Margin="20 0 0 0" Click="CopyButton_Click" BorderBrush="Black">Copy</Button>
+                        <Button Name="PasteButton" Width="50" Background="Transparent" Margin="20 0 0 0" Click="PasteButton_Click" BorderBrush="Black">Paste</Button>
+                        <Button Name="SelectAllButton"  Width="60" Background="Transparent" Margin="20 0 0 0" Click="SelectAllButton_Click" BorderBrush="Black">Select All</Button>
                     </WrapPanel>
                 </Border>
 
 
 
-                <TextBox Grid.Row="2" BorderBrush="#003bf7" BorderThickness="2" Name="MainTextBox">
+                <TextBox Grid.Row="2" BorderBrush="#009af4" BorderThickness="2" Name="MainTextBox" TextChanged="MainTextBox_TextChanged">
                     
                 </TextBox>
             </Grid>

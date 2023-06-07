@@ -71,5 +71,39 @@ namespace Rich_Text_Editor
         {
             MainTextBox.SelectAll();
         }
+
+        private void SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog= new SaveFileDialog();
+            saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (saveFileDialog.ShowDialog()==true)
+            {
+                File.WriteAllText(saveFileDialog.FileName,allText);
+            }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            allText = MainTextBox.Text;
+        }
+
+        private void AutoSaveCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            SaveButton.IsEnabled = false;
+            allText = MainTextBox.Text;
+        }
+
+        private void AutoSaveCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            SaveButton.IsEnabled = true;
+        }
+
+        private void MainTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(AutoSaveCheckBox.IsChecked==true)
+            {
+                allText=MainTextBox.Text;
+            }
+        }
     }
 }
