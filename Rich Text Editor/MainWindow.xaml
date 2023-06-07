@@ -5,26 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rich_Text_Editor"
         mc:Ignorable="d"
-        Title="Rich Text Editor" Height="450" Width="800" >
-    
-    <Grid Name="Main"> <!-- Main Grid -->
-        
-        
+        Title="Rich Text Editor" Height="450" Width="800">
+
+    <Grid Name="Main">
+        <!-- Main Grid -->
+
+
         <Border CornerRadius="10" BorderThickness="3" BorderBrush="White">
-            
-            
-            <Grid Name="RoundedMain"> <!-- Round Main Grid -->
-        
-                
+
+
+            <Grid Name="RoundedMain">
+                <!-- Round Main Grid -->
+
+
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"></RowDefinition> <!-- Logo and Menu -->
-                    <RowDefinition Height="70"></RowDefinition> <!--    Filters    -->
-                    <RowDefinition></RowDefinition>             <!--   Text Box    -->
+                    <RowDefinition Height="50"></RowDefinition>
+                    <!-- Logo and Menu -->
+                    <RowDefinition Height="70"></RowDefinition>
+                    <!--    Filters    -->
+                    <RowDefinition></RowDefinition>
+                    <!--   Text Box    -->
                 </Grid.RowDefinitions>
-                
-               
-                
-                
+
+
+
+
                 <Border Grid.Row="0" VerticalAlignment="Top" CornerRadius="3" >
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -40,8 +45,9 @@
                             <!-- Logo Definition-->
                             <RowDefinition Height="27"></RowDefinition>
                             <!-- Menu Definition -->
+                            <RowDefinition Height="27"></RowDefinition>
                         </Grid.RowDefinitions>
-                        
+
                         <!-- Logo -->
                         <Label Grid.Row="0" Height="130" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="18" FontFamily="Arial" Foreground="AliceBlue" Content="Rich Text Editor"></Label>
                         <Menu Grid.Row="1" Background="Transparent" Height="20">
@@ -56,7 +62,7 @@
                         </Menu>
                     </Grid>
 
-                    
+
                 </Border>
 
 
@@ -68,7 +74,7 @@
                         </LinearGradientBrush>
                     </Border.Background>
 
-                    <WrapPanel>
+                    <WrapPanel Margin="0,0,291,0">
                         <TextBox 
                             Name="FileDialogTextBox" Background="Transparent" Width="80" BorderBrush="Black">
                             <TextBox.ToolTip>
@@ -79,7 +85,7 @@
                             </TextBox.ToolTip>
                         </TextBox>
 
-                        
+
                         <Button Name="FileDialogButton" Width="20" Background="Transparent" Click="FileDialogButton_Click" BorderBrush="Black">
                             <Button.ToolTip>
                                 <StackPanel>
@@ -87,11 +93,13 @@
                                     <TextBlock Text="Click the button and it will open a file dialog for you to choose a file"/>
                                 </StackPanel>
                             </Button.ToolTip>
-                            <TextBlock>
-                                
-                            </TextBlock>
-                            </Button>
+                            <Viewbox>
+                                <Image Source="{StaticResource Load}"></Image>
+                            </Viewbox>
+                        </Button>
+
                         <Button Name="SaveButton"  Width="50" Background="Transparent" Margin="20 0 0 0" Click="SaveButton_Click" BorderBrush="Black">Save</Button>
+
                         <CheckBox Name ="AutoSaveCheckBox" Margin="8 2 0 0" Checked="AutoSaveCheckBox_Checked" Unchecked="AutoSaveCheckBox_Unchecked" Background="Transparent" BorderBrush="Black" BorderThickness="2">
                             <CheckBox.ToolTip>
                                 <StackPanel>
@@ -104,28 +112,102 @@
                         <Button Name="CopyButton" Width="50" Background="Transparent" Margin="20 0 0 0" Click="CopyButton_Click" BorderBrush="Black">Copy</Button>
                         <Button Name="PasteButton" Width="50" Background="Transparent" Margin="20 0 0 0" Click="PasteButton_Click" BorderBrush="Black">Paste</Button>
                         <Button Name="SelectAllButton"  Width="60" Background="Transparent" Margin="20 0 0 0" Click="SelectAllButton_Click" BorderBrush="Black">Select All</Button>
+                        <Button Name="BoldButton" Width="20" Background="Transparent" Margin="5 10 0 0" FontWeight="ExtraBold" BorderBrush="Black" Click="BoldButton_Click">B</Button>
+                        <Button Name="ItalicButton" Width="20" Background="Transparent" Margin="15 10 0 0" FontStyle="Italic" BorderBrush="Black" Click="ItalicButton_Click">I</Button>
+                        <Button Name="UnderlineButton" Width="20" Background="Transparent" Margin="15 10 0 0" BorderBrush="Black" Click="UnderlineButton_Click">
+                            <TextBlock TextDecorations="Underline">U</TextBlock>
+                        </Button>
+
+                        <ComboBox Width="80" Margin="10 10 0 0" Name="FontComboBox" SelectionChanged="FontComboBox_SelectionChanged">
+                            <ComboBox.ToolTip>
+                                <StackPanel>
+                                    <TextBlock Text="Font Picker" FontWeight="Bold"/>
+                                    <TextBlock Text="Select the font and selected text will change"/>
+                                </StackPanel>
+                            </ComboBox.ToolTip>
+                        </ComboBox>
+                        
+                        <ComboBox Width="50" Margin="10 10 0 0" Name="SizeComboBox" SelectionChanged="SizeComboBox_SelectionChanged">
+                            <ComboBox.ToolTip>
+                                <StackPanel>
+                                    <TextBlock Text="Size Picker" FontWeight="Bold"/>
+                                    <TextBlock Text="Select the size and selected text will change its size"/>
+                                </StackPanel>
+                            </ComboBox.ToolTip>
+                        </ComboBox>
+
+                        
+
+
+                        <Button Width="43" Height="20" Margin="20 10 0 0" Background="Transparent" BorderBrush="Transparent">
+                            <Button.ToolTip>
+                                <StackPanel>
+                                    <TextBlock Text="Color Picker" FontWeight="Bold" />
+                                    <TextBlock Text="Pick a one and it will change selected text's color"/>
+                                </StackPanel>
+                            </Button.ToolTip>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource DownArrow}" Width="15" Height="15" />
+                                <TextBlock Grid.Column="1" Text="A" VerticalAlignment="Center" TextDecorations="Underline" />
+                            </Grid>
+                        </Button>
+
+                        
+                        
+                        <Button Width="43" Height="20" Margin="20 10 0 0" Background="Transparent" BorderBrush="Transparent">
+                            <Button.ToolTip>
+                                <StackPanel>
+                                    <TextBlock Text="Back Color Picker" FontWeight="Bold" />
+                                    <TextBlock Text="Pick a one and it will change textbox's back color"/>
+                                </StackPanel>
+                            </Button.ToolTip>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="{StaticResource DownArrow}" Width="15" Height="15" />
+                                <Image Grid.Column="1" Source="{StaticResource FillColor}" Width="15" Height="15" />
+                                
+                            </Grid>
+                        </Button>
+                        
+                        
+                        
+                        
+                        
+                        !<!-- Color Dialog , Color Dialog for Background , Alignment Dialog-->
+                        
+
+
+
+
                     </WrapPanel>
                 </Border>
 
 
 
                 <TextBox Grid.Row="2" BorderBrush="#009af4" BorderThickness="2" Name="MainTextBox" TextChanged="MainTextBox_TextChanged">
-                    
+
                 </TextBox>
             </Grid>
 
         </Border>
-        
-
-            
-
-        
-
-            
 
 
 
-        
+
+
+
+
+
+
+
+
 
 
 

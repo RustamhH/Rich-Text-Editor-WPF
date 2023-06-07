@@ -5,7 +5,10 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <Image x:Key="Load" Source="assets/load button.png"></Image>
+            <BitmapImage x:Key="Load" UriSource="assets\load button.png"></BitmapImage>
+            <BitmapImage x:Key="DownArrow" UriSource="assets\downarrow.png"></BitmapImage>
+            <BitmapImage x:Key="FillColor" UriSource="assets\fillcolor.png"></BitmapImage>
+            <BitmapImage x:Key="Aligner" UriSource="assets\aligner.png"></BitmapImage>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

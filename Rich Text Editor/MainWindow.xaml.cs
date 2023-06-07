@@ -26,6 +26,9 @@ namespace Rich_Text_Editor
         public MainWindow()
         {
             InitializeComponent();
+            SizeComboBox.ItemsSource = new string[] { "8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72" };
+            FontComboBox.ItemsSource = Fonts.SystemFontFamilies.Select(f => f.ToString());
+
         }
 
         private void FileDialogButton_Click(object sender, RoutedEventArgs e)
@@ -104,6 +107,34 @@ namespace Rich_Text_Editor
             {
                 allText=MainTextBox.Text;
             }
+        }
+
+        private void BoldButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MainTextBox.FontWeight!=FontWeights.Bold) MainTextBox.FontWeight = FontWeights.Bold;
+            else MainTextBox.FontWeight = FontWeights.Normal;
+        }
+
+        private void ItalicButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MainTextBox.FontStyle != FontStyles.Italic) MainTextBox.FontStyle = FontStyles.Italic;
+            else MainTextBox.FontStyle = FontStyles.Normal;
+        }
+
+        private void UnderlineButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MainTextBox.TextDecorations != TextDecorations.Underline) MainTextBox.TextDecorations = TextDecorations.Underline;
+            else MainTextBox.TextDecorations = null;
+        }
+
+        private void FontComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MainTextBox.FontFamily = new(FontComboBox.SelectedItem.ToString());
+        }
+
+        private void SizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MainTextBox.FontSize = Convert.ToDouble(SizeComboBox.SelectedItem);
         }
     }
 }

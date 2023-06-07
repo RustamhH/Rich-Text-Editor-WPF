@@ -9,10 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\aligner.png" />
+    <None Remove="assets\downarrow.png" />
+    <None Remove="assets\fillcolor.png" />
     <None Remove="assets\load button.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="assets\aligner.png" />
+    <Resource Include="assets\downarrow.png" />
+    <Resource Include="assets\fillcolor.png" />
     <Resource Include="assets\load button.png" />
   </ItemGroup>
 
