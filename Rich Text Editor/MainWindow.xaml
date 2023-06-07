@@ -95,17 +95,16 @@
                                 </StackPanel>
                             </CheckBox.ToolTip>
                         </CheckBox>
-                        <Button Name="CutButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold">Cut</Button>
-                        <Button Name="CopyButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold">Copy</Button>
-                        <Button Name="PasteButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold">Paste</Button>
-                        <Button Name="SelectAllButton"  Width="60" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold">Select All</Button>
+                        <Button Name="CutButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold" Click="CutButton_Click">Cut</Button>
+                        <Button Name="CopyButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold" Click="CopyButton_Click">Copy</Button>
+                        <Button Name="PasteButton" Width="50" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold" Click="PasteButton_Click">Paste</Button>
+                        <Button Name="SelectAllButton"  Width="60" Background="Transparent" Margin="20 0 0 0" FontWeight="Bold" Click="SelectAllButton_Click">Select All</Button>
                     </WrapPanel>
                 </Border>
 
 
 
                 <TextBox Grid.Row="2" BorderBrush="#003bf7" BorderThickness="2" Name="MainTextBox">
-                    
                     
                 </TextBox>
             </Grid>

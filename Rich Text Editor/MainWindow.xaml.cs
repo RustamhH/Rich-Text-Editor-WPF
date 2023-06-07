@@ -30,17 +30,46 @@ namespace Rich_Text_Editor
 
         private void FileDialogButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             OpenFileDialog openFileDialog = new();
             openFileDialog.FileName = FileDialogTextBox.Text;
             openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            if(openFileDialog.ShowDialog()==true)
+            if (openFileDialog.ShowDialog() == true)
             {
                 var str = File.ReadAllText(openFileDialog.FileName);
                 MainTextBox.Text = str;
-                FileDialogTextBox.Text = openFileDialog.FileName;   
-            } 
-            
+                FileDialogTextBox.Text = openFileDialog.FileName;
+            }
+        }
+
+        private void CutButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(MainTextBox.SelectedText))
+            {
+                Clipboard.SetText(MainTextBox.SelectedText);
+                MainTextBox.SelectedText = string.Empty;
+            }
+        }
+
+        private void CopyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(MainTextBox.SelectedText))
+            {
+                Clipboard.SetText(MainTextBox.SelectedText);
+            }
+        }
+        private void PasteButton_Click(object sender, RoutedEventArgs e)
+        {
+            string clipboardText = Clipboard.GetText();
+            int caretIndex = MainTextBox.CaretIndex;
+
+            MainTextBox.Text = MainTextBox.Text.Insert(caretIndex, clipboardText);
+            MainTextBox.CaretIndex = caretIndex + clipboardText.Length;
+        }
+
+        private void SelectAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainTextBox.SelectAll();
         }
     }
 }
