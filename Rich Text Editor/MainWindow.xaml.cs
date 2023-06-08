@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace Rich_Text_Editor
 {
@@ -28,13 +31,16 @@ namespace Rich_Text_Editor
             InitializeComponent();
             SizeComboBox.ItemsSource = new string[] { "8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72" };
             FontComboBox.ItemsSource = Fonts.SystemFontFamilies.Select(f => f.ToString());
-
+            AlignmentComboBox.ItemsSource = new string[] { "Left", "Center"  ,"Right" };
+            AlignmentComboBox.SelectedItem = "Left";
+            SizeComboBox.SelectedItem = "11";
+            FontComboBox.SelectedItem = "Segoe UI";
         }
 
         private void FileDialogButton_Click(object sender, RoutedEventArgs e)
         {
 
-            OpenFileDialog openFileDialog = new();
+            Microsoft.Win32.OpenFileDialog openFileDialog = new();
             openFileDialog.FileName = FileDialogTextBox.Text;
             openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
@@ -49,7 +55,7 @@ namespace Rich_Text_Editor
         {
             if (!string.IsNullOrEmpty(MainTextBox.SelectedText))
             {
-                Clipboard.SetText(MainTextBox.SelectedText);
+                System.Windows.Clipboard.SetText(MainTextBox.SelectedText);
                 MainTextBox.SelectedText = string.Empty;
             }
         }
@@ -58,12 +64,12 @@ namespace Rich_Text_Editor
         {
             if (!string.IsNullOrEmpty(MainTextBox.SelectedText))
             {
-                Clipboard.SetText(MainTextBox.SelectedText);
+                System.Windows.Clipboard.SetText(MainTextBox.SelectedText);
             }
         }
         private void PasteButton_Click(object sender, RoutedEventArgs e)
         {
-            string clipboardText = Clipboard.GetText();
+            string clipboardText = System.Windows.Clipboard.GetText();
             int caretIndex = MainTextBox.CaretIndex;
 
             MainTextBox.Text = MainTextBox.Text.Insert(caretIndex, clipboardText);
@@ -77,7 +83,7 @@ namespace Rich_Text_Editor
 
         private void SaveAs_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog= new SaveFileDialog();
+            Microsoft.Win32.SaveFileDialog saveFileDialog= new Microsoft.Win32.SaveFileDialog();
             saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             if (saveFileDialog.ShowDialog()==true)
             {
@@ -114,7 +120,7 @@ namespace Rich_Text_Editor
             if(MainTextBox.FontWeight!=FontWeights.Bold) MainTextBox.FontWeight = FontWeights.Bold;
             else MainTextBox.FontWeight = FontWeights.Normal;
         }
-
+     
         private void ItalicButton_Click(object sender, RoutedEventArgs e)
         {
             if(MainTextBox.FontStyle != FontStyles.Italic) MainTextBox.FontStyle = FontStyles.Italic;
@@ -135,6 +141,44 @@ namespace Rich_Text_Editor
         private void SizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MainTextBox.FontSize = Convert.ToDouble(SizeComboBox.SelectedItem);
+        }
+
+        private void BackColorPicker_Click(object sender, RoutedEventArgs e)
+        {
+            ColorDialog  colorDialog = new ColorDialog();
+            if(colorDialog.ShowDialog()==System.Windows.Forms.DialogResult.OK)
+            {
+                MainTextBox.Background = new SolidColorBrush(System.Windows.Media.
+                    Color.FromRgb(colorDialog.Color.R, colorDialog.Color.G,colorDialog.Color.B));
+            }
+            
+        }
+
+        private void ForeColorPicker_Click(object sender, RoutedEventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                MainTextBox.Foreground = new SolidColorBrush(System.Windows.Media.
+                    Color.FromRgb(colorDialog.Color.R, colorDialog.Color.G, colorDialog.Color.B));
+            }
+        }
+
+        private void AlignmentComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(AlignmentComboBox.SelectedItem=="Left")
+            {
+                MainTextBox.TextAlignment = TextAlignment.Left;
+            }
+            else if(AlignmentComboBox.SelectedItem=="Center")
+            {
+                MainTextBox.TextAlignment = TextAlignment.Center;
+            }
+            else if(AlignmentComboBox.SelectedItem=="Right")
+            {
+                MainTextBox.TextAlignment = TextAlignment.Right;
+            }
+
         }
     }
 }
